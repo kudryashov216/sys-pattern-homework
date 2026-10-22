@@ -74,25 +74,21 @@ WHERE length > (
 
 ### Задание 3
 
-`Приведите ответ в свободной форме........`
-
-1. `Заполните здесь этапы выполнения, если требуется ....`
-2. `Заполните здесь этапы выполнения, если требуется ....`
-3. `Заполните здесь этапы выполнения, если требуется ....`
-4. `Заполните здесь этапы выполнения, если требуется ....`
-5. `Заполните здесь этапы выполнения, если требуется ....`
-6. 
-
-```
-Поле для вставки кода...
-....
-....
-....
-....
-```
+SELECT DISTINCT
+    payment_month AS month,
+    MAX(total_amount) OVER () AS sum_payments,
+    FIRST_VALUE(rental_count) OVER (ORDER BY total_amount DESC) AS quantity_rentals_films
+FROM (
+    SELECT 
+        strftime('%Y-%m', p.payment_date) AS payment_month,
+        SUM(p.amount) AS total_amount,
+        COUNT(*) AS rental_count
+    FROM payment p
+    GROUP BY payment_month
+) AS monthly_stats;
 
 `При необходимости прикрепитe сюда скриншоты
-![Название скриншота](ссылка на скриншот)`
+![alt text](image-2.png)
 
 ### Задание 4
 
