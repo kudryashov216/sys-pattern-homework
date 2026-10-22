@@ -26,6 +26,8 @@
 
 `Приведите ответ в свободной форме........`
 
+
+
 1. `Заполните здесь этапы выполнения, если требуется ....`
 2. `Заполните здесь этапы выполнения, если требуется ....`
 3. `Заполните здесь этапы выполнения, если требуется ....`
@@ -35,14 +37,36 @@
 
 ```
 Поле для вставки кода...
-....
-....
-....
-....
-```
+
+SELECT s.staff_id AS ID,
+       s.first_name,
+       s.last_name AS last_name,
+       country.country AS country,
+       city.city AS city,
+       address.address AS address,
+       s.store_id AS SID,
+       COUNT(customer.store_id) as count_customer
+FROM 
+    staff AS s 
+        LEFT JOIN address AS address 
+            ON s.address_id = address.address_id JOIN city 
+            ON address.city_id = city.city_id 
+        LEFT JOIN country 
+            ON city.country_id = country.country_id
+        LEFT JOIN customer AS customer
+            ON s.store_id = customer.store_id
+GROUP BY
+    s.staff_id,
+    s.first_name,
+    s.last_name,
+    country.country,
+    city.city,
+    address.address,
+    s.store_id;
+
 
 `При необходимости прикрепитe сюда скриншоты
-![Название скриншота 1](ссылка на скриншот 1)`
+![alt text](image.png)
 
 
 ---
