@@ -84,7 +84,9 @@
 
 ![alt text](<Блок схема.png>)
 
-[text](../../../Downloads/server_modes_table.html)
+Таблица режима работы серверов:
+
+[text](server_modes_table.html)
 
 ---
 
