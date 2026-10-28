@@ -86,7 +86,7 @@
 
 Таблица режима работы серверов:
 
-[text](server_modes_table.html)
+![alt text](image.png)
 
 ---
 
